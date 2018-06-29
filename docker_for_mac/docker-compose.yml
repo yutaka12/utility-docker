@@ -1,0 +1,8 @@
+version: "2"
+
+services:
+  example_container:
+    image: alpine
+    command: 'watch -n3 cat /var/www/index.html'
+    volumes:
+      - ./app:/var/www

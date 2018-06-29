@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+  example_mysql:
+    build: .
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_password
+      MYSQL_DATABASE: detabase_name
+    ports:
+      - 127.0.0.1:3306:3306
+    volumes:
+      - example_mysql_data:/var/lib/mysql
+
+volumes:
+  example_mysql_data:
+    driver: local

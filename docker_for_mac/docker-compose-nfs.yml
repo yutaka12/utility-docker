@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  example_container:
+    image: alpine
+    command: 'watch -n3 cat /var/www/index.html'
+    volumes:
+      - nfs_example:/var/www
+
+volumes:
+  nfs_example:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=host.docker.internal,actimeo=1
+      device: ":${PWD}/app"
